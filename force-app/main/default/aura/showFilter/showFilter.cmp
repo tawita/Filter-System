@@ -1,0 +1,20 @@
+<aura:component  implements="force:appHostable,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="msoptions" type="List" default="['All','Name','Phone','Rating','Type']"/>
+    <aura:attribute name="select" type="List" default="[true,true,true,true]"/>
+
+        <lightning:card title="Filter Account">
+            <lightning:layout horizontalAlign="center" verticalAlign="end"> 
+                <lightning:layoutItem padding="around-small">
+                    <c:filter aura:id="jobLocationMS"  msoptions="{!v.msoptions}" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small">
+                    <lightning:button variant="brand" label="Search" onclick="{!c.onFormSubmit}"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </lightning:card>
+        
+
+    <lightning:card title="Account">
+        <c:result aura:id="boatSearchResultsCmp" select="{!v.select}"/>
+    </lightning:card>
+</aura:component>	

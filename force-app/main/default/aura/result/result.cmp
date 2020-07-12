@@ -1,0 +1,47 @@
+<aura:component controller="dataAccount" implements="force:appHostable,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute type="Account[]" name="Accounts"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="select" type="List" default="[true,true,true,true]"/>
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+        <thead>
+          <tr class="slds-line-height_reset">
+
+            <aura:if isTrue="{!v.select[0]}">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Name">Name</div>
+                </th>
+            </aura:if>
+
+            <aura:if isTrue="{!v.select[1]}">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+            </aura:if>
+
+            <aura:if isTrue="{!v.select[2]}">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Rating">Rating</div>
+                </th>
+            </aura:if>
+
+            <aura:if isTrue="{!v.select[3]}">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Type">Type</div>
+                </th>
+            </aura:if>
+          </tr>
+        </thead>
+        <tbody>
+
+                   
+                    <aura:iteration items="{!v.Accounts}" var="Account" >
+                        <c:accountItem Accounts ="{!Account}" select="{!v.select}"/>
+                    </aura:iteration>
+                         
+        </tbody>
+      </table>
+
+      
+
+</aura:component>	

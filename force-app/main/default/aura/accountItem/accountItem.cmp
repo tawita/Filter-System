@@ -1,0 +1,36 @@
+<aura:component >
+    <aura:attribute type="Account" name="Accounts"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="select" type="List" default="[true,true,true,true]"/>
+
+    <c:modalInfo isOpen="{!v.isOpen}" Accounts="{!v.Accounts}"/>
+
+        <tr class="slds-hint-parent">
+          <aura:if isTrue="{!v.select[0]}">
+            <th data-label="Name" scope="row">
+              <div class="slds-truncate" title="{!v.Accounts.Name}">
+                <a href="javascript:void(0);" tabindex="-1"  data-userid="{!v.Accounts.Name}" onclick="{!c.openModel}">{!v.Accounts.Name}</a>
+              </div>
+            </th>
+          </aura:if>
+
+          <aura:if isTrue="{!v.select[1]}">
+            <td data-label="Phone">
+              <div class="slds-truncate" title="Phone">{!v.Accounts.Phone}</div>
+            </td>
+          </aura:if>
+
+          <aura:if isTrue="{!v.select[2]}">
+            <td data-label="Rating">
+                <div class="slds-truncate" title="Rating">{!v.Accounts.Rating}</div>
+            </td>
+          </aura:if>
+
+          <aura:if isTrue="{!v.select[3]}">
+            <td data-label="Type">
+                <div class="slds-truncate" title="Type">{!v.Accounts.Type}</div>
+            </td>
+          </aura:if>
+
+        </tr>
+</aura:component>	
